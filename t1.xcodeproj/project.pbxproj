@@ -16,6 +16,7 @@
 		0606F04C274D22FA00FF7769 /* t1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0606F04B274D22FA00FF7769 /* t1Tests.swift */; };
 		0606F056274D22FA00FF7769 /* t1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0606F055274D22FA00FF7769 /* t1UITests.swift */; };
 		0606F058274D22FA00FF7769 /* t1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0606F057274D22FA00FF7769 /* t1UITestsLaunchTests.swift */; };
+		0606F065274D23F800FF7769 /* vc2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0606F064274D23F800FF7769 /* vc2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0606F051274D22FA00FF7769 /* t1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = t1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0606F055274D22FA00FF7769 /* t1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = t1UITests.swift; sourceTree = "<group>"; };
 		0606F057274D22FA00FF7769 /* t1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = t1UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0606F064274D23F800FF7769 /* vc2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vc2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				0606F036274D22F500FF7769 /* SceneDelegate.swift */,
 				0606F038274D22F500FF7769 /* ViewController.swift */,
 				0606F03A274D22F500FF7769 /* Main.storyboard */,
+				0606F064274D23F800FF7769 /* vc2.swift */,
 				0606F03D274D22FA00FF7769 /* Assets.xcassets */,
 				0606F03F274D22FA00FF7769 /* LaunchScreen.storyboard */,
 				0606F042274D22FA00FF7769 /* Info.plist */,
@@ -261,6 +264,7 @@
 				0606F039274D22F500FF7769 /* ViewController.swift in Sources */,
 				0606F035274D22F500FF7769 /* AppDelegate.swift in Sources */,
 				0606F037274D22F500FF7769 /* SceneDelegate.swift in Sources */,
+				0606F065274D23F800FF7769 /* vc2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
