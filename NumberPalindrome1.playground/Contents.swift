@@ -25,14 +25,15 @@ func reverse(_ y: Int) -> Int {
     return ans*sign
 }
 
-var j = 0
-var num = 99887766
+var j = 1
+var num = 7325
 var rev = reverse(num)
 var sum = num + rev
 //print("Rev1 = ", rev)
 //print("Sum = ", sum)
 while sum != reverse(sum) {
     j += 1
-    print("Palindrome = ", sum + reverse(sum), ", after ", j, " iteractions.")
     sum += reverse(sum)
 }
+
+print("Palindrome =", sum, ", after", j,  "iteractions.")
