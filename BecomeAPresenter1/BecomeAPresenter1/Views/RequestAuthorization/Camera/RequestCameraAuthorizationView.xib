@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RequestCameraAuthorizationView" customModule="BecomeAPresenter1" customModuleProvider="target">
+            <connections>
+                <outlet property="actionButton" destination="tEK-C2-2iU" id="TUT-JC-T8X"/>
+                <outlet property="cameraImageView" destination="0r3-VH-2nL" id="Qf2-xy-Nyf"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Eve-HI-BS8"/>
+                <outlet property="messageLabel" destination="WvS-hk-LdF" id="XkP-lK-fVo"/>
+                <outlet property="titleLabel" destination="GBH-vl-iLV" id="xJO-wz-W1Z"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Authorization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBH-vl-iLV">
+                    <rect key="frame" x="94.5" y="285.5" width="225" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Auth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvS-hk-LdF">
+                    <rect key="frame" x="20" y="330.5" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEK-C2-2iU">
+                    <rect key="frame" x="167" y="381.5" width="80" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="aUc-aX-NJf"/>
+                        <constraint firstAttribute="height" constant="50" id="zz5-et-r6G"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Allow"/>
+                    <connections>
+                        <action selector="actionButtonHandlerWithBtn:" destination="-1" eventType="touchUpInside" id="MsR-yw-wDW"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0r3-VH-2nL">
+                    <rect key="frame" x="177" y="206" width="60" height="58"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="Qmb-eY-snH"/>
+                        <constraint firstAttribute="height" constant="60" id="Zq9-Du-P1S"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="GBH-vl-iLV" firstAttribute="top" secondItem="0r3-VH-2nL" secondAttribute="bottom" constant="20" id="DYE-b6-nH5"/>
+                <constraint firstItem="GBH-vl-iLV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Egq-1k-hmG"/>
+                <constraint firstItem="WvS-hk-LdF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Y7J-Xc-hoU"/>
+                <constraint firstItem="GBH-vl-iLV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dKN-NA-dMb"/>
+                <constraint firstItem="0r3-VH-2nL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hGl-SE-Rgu"/>
+                <constraint firstItem="tEK-C2-2iU" firstAttribute="top" secondItem="WvS-hk-LdF" secondAttribute="bottom" constant="30" id="kKy-1g-4u0"/>
+                <constraint firstItem="tEK-C2-2iU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qyV-bB-OrG"/>
+                <constraint firstItem="WvS-hk-LdF" firstAttribute="top" secondItem="GBH-vl-iLV" secondAttribute="bottom" constant="16" id="vJM-JZ-GZ2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WvS-hk-LdF" secondAttribute="trailing" constant="20" id="w0r-n6-kzL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="80.357142857142847"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
