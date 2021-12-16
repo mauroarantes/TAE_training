@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     var auxArray1 = [Pokemon2]()
     var pokDetails = [Pokemon2]()
     let semaphore = DispatchSemaphore(value: 0)
-    let rpt: Pokemon2 = Pokemon2(name: "-1", id: -1, abilities: [Abilities(ability: Ability(name: "-1")), Abilities(ability: Ability(name: "-2"))], sprites: nil, types: [Types(typ: Typ(name: "-1"))])
+    let rpt: Pokemon2 = Pokemon2(name: "-1", id: -1, abilities: [Abilities(ability: Ability(name: "-1")), Abilities(ability: Ability(name: "-2"))], sprites: nil, types: [Types(typ: Typ(name: "-1"))], moves: [Moves(move: Move(name: "-1"))] )
     var nextURL: URL!
     var pokURL: URL!
     var isPaginating = false
@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         //manually adding tableview to VC programmatically
         view.addSubview(tableview)
         tableview.rowHeight = 200
+        self.title = "Pokedex"
         //set delegates
         //set row height
         //register cells
@@ -123,6 +124,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        print(pokemons.count)
         return pokemons.count
     }
     

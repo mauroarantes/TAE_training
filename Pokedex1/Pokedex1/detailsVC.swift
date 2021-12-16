@@ -12,15 +12,20 @@ class detailsVC: UIViewController {
     var pokDetails: Pokemon2?
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet var l1: UILabel!
+    @IBOutlet var l1: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        l1.numberOfLines = 0
-        l1.text = pokDetails!.name.capitalized + "\n\nAbilities:\n"
-        for each in pokDetails!.abilities {
-            l1.text? += "\n" + each.ability.name.capitalized
+        l1.text = pokDetails!.name.capitalized + "\nType " + pokDetails!.types[0].typ.name + "\n\nMoves:\n"
+        for each in pokDetails!.moves {
+            l1.text? += each.move.name.capitalized + ", "
         }
+        l1.text? = String(l1.text.dropLast(2))
+        l1.text? += "\n\nAbilities:\n"
+        for each in pokDetails!.abilities {
+            l1.text? += each.ability.name.capitalized + ", "
+        }
+        l1.text? = String(l1.text.dropLast(2))
         imageView.getImage(from: pokDetails!.sprites.front)
         // Do any additional setup after loading the view.
     }
