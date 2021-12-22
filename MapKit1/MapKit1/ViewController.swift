@@ -50,6 +50,7 @@ class ViewController: UIViewController {
                 switch result {
                 case .success(let data):
                     self.RUarray.append(contentsOf: [data])
+//                    print(data.results[0].name.first, data.results[0].location.coordinates)
                 case .failure(let error):
                     print(error)
                 }
