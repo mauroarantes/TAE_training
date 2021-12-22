@@ -9,7 +9,7 @@ import Foundation
 
 extension URLSession {
     
-    func getRequest<T:Codable> (url: URL?, decoding: T.Type, completion: @escaping (Result<T, Error>) -> ()) {
+    func getRequest<T:Decodable> (url: URL?, decoding: T.Type, completion: @escaping (Result<T, Error>) -> ()) {
         
         guard let url = url else {
             completion(.failure(RequestError.badURL))

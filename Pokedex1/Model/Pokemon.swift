@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Pokemon2: Codable {
+struct Pokemon2: Decodable {
     let name: String
     let id: Int
     let abilities: [Abilities]
@@ -24,49 +24,49 @@ struct Pokemon2: Codable {
     }
 }
 
-struct Sprites: Codable {
+struct Sprites: Decodable {
     let front: URL
     enum CodingKeys: String, CodingKey {
         case front = "front_default"
     }
 }
 
-struct Abilities: Codable {
+struct Abilities: Decodable {
     let ability: Ability
     enum CodingKeys: String, CodingKey {
         case ability = "ability"
     }
 }
 
-struct Ability: Codable {
+struct Ability: Decodable {
     let name: String
     enum CodingKeys: String, CodingKey {
         case name = "name"
     }
 }
 
-struct Moves: Codable {
+struct Moves: Decodable {
     let move: Move
     enum CodingKeys: String, CodingKey {
         case move = "move"
     }
 }
 
-struct Move: Codable {
+struct Move: Decodable {
     let name: String
     enum CodingKeys: String, CodingKey {
         case name = "name"
     }
 }
 
-struct Types: Codable {
+struct Types: Decodable {
     let typ: Typ
     enum CodingKeys: String, CodingKey {
         case typ = "type"
     }
 }
 
-struct Typ: Codable {
+struct Typ: Decodable {
     let name: String
     enum CodingKeys: String, CodingKey {
         case name = "name"

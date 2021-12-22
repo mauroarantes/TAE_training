@@ -16,15 +16,15 @@ class ViewController: UIViewController {
     var auxArray1 = [Pokemon2]()
     var pokDetails = [Pokemon2]()
     let semaphore = DispatchSemaphore(value: 0)
-    let rpt: Pokemon2 = Pokemon2(name: "-1", id: -1, abilities: [Abilities(ability: Ability(name: "-1")), Abilities(ability: Ability(name: "-2"))], sprites: nil, types: [Types(typ: Typ(name: "-1"))], moves: [Moves(move: Move(name: "-1"))] )
-    var nextURL: URL!
-    var pokURL: URL!
+    let rpt: Pokemon2 = Pokemon2(name: "-1", id: -1, abilities: [Abilities(ability: Ability(name: "-1")), Abilities(ability: Ability(name: "-1"))], sprites: nil, types: [Types(typ: Typ(name: "-1"))], moves: [Moves(move: Move(name: "-1"))] )
+    var nextURL: URL?
+    var pokURL: URL?
     var isPaginating = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pokDetails = Array(repeating: self.rpt, count: 150)
-        fetchFirstData()
+        pokDetails = Array(repeating: self.rpt, count: 999)
+        if let url = APIEndpoints.url {fetchData(url: url)}
         configureTableView()
         setupDelegates()
         // Do any additional setup after loading the view.
@@ -48,45 +48,9 @@ class ViewController: UIViewController {
         tableview.dataSource = self
     }
     
-    func fetchFirstData () {
-        URLSession.shared.getRequest(url: APIEndpoints.url, decoding: Raw.self) {result in
-            switch result {
-            case .success(let data):
-                self.pokemons.append(contentsOf: data.array)
-                
-                for (_, pokemon) in self.pokemons.enumerated() {
-                    self.pokURL = URL(string: pokemon.url)
-                    URLSession.shared.getRequest(url: self.pokURL, decoding: Pokemon2.self) {result in
-                        switch result {
-                        case .success(let data):
-                            self.pokDetails[data.id-1] = data
-                            self.auxArray1.append(contentsOf: [data])
-                            if self.auxArray1.count == 30 {
-                                self.semaphore.signal()
-                            }
-
-                        case .failure(let error):
-                            print(error)
-                        }
-                    }
-                }
-                
-                self.nextURL = URL(string: data.next)
-                DispatchQueue.main.async {
-                    self.isPaginating = false
-                    self.semaphore.wait()
-                    self.auxArray1 = []
-                    self.tableview.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    func fetchData() {
-        print("Fetch more data!")
-            URLSession.shared.getRequest(url: self.nextURL, decoding: Raw.self) {result in
+    func fetchData(url: URL) {
+        print("Fetch data!")
+            URLSession.shared.getRequest(url: url, decoding: Raw.self) {result in
                 switch result {
                 case .success(let data):
                     self.pokemons.append(contentsOf: data.array)
@@ -124,7 +88,6 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print(pokemons.count)
         return pokemons.count
     }
     
@@ -163,10 +126,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let position = scrollView.contentOffset.y
         if position > (tableview.contentSize.height-400-scrollView.frame.size.height) {
             guard !self.isPaginating else {return}
-            fetchData()
+            if let url = self.nextURL {fetchData(url: url)}
             self.isPaginating = true
         }
     }
 }
-
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Raw: Codable {
+struct Raw: Decodable {
     let array: [Pokemon]
     let next: String
     
@@ -17,7 +17,7 @@ struct Raw: Codable {
     }
 }
 
-struct Pokemon: Codable {
+struct Pokemon: Decodable {
     let name: String
     let url: String
     
